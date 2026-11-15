@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDS Suite — Digitalizare Completă pentru Primării și UAT-uri | Ciucă Denis Software</title>
+  <meta name="description" content="Suita software desktop CDS Suite pentru Primării din România: Patrimoniu & Inventar, Contracte, HCL, Registratură, Pontaje, Avize și Procese-Verbale. Cu mentenanță și sprijin tehnic inclus." />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVBAR GLASSMORPHISM
+       ===================================================== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <img src="logo.png" alt="Logo CDS Suite" />
+        <div class="brand-text">
+          <span class="brand-name">CDS Suite</span>
+          <span class="brand-sub">Ciucă Denis Software</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#simulator">Simulator Live</a></li>
+        <li><a href="#avantaje">Avantaje</a></li>
+        <li><a href="#module">Cele 9 Module</a></li>
+        <li><a href="#mostre">Mostre Documente</a></li>
+        <li><a href="#mentenanta">Mentenanță &amp; Suport</a></li>
+        <li><a href="#preturi">Prețuri</a></li>
+        <li><a href="#faq">Întrebări (FAQ)</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="siteThemeToggle" type="button" title="Schimbă tema site-ului">
+          ☀️ Light
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">Solicită Demo în Primărie</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Deschide meniul">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       HERO SECTION
+       ===================================================== -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot-live"></span>
+          Soluție Software Integrată pentru Primării și UAT-uri din România
+        </div>
+
+        <h1>
+          <span class="highlight">9 Aplicații Esențiale pentru Primărie</span><br />
+          într-o Singură Suită Modernă
+        </h1>
+
+        <p class="hero-subtitle">
+          Elimină tabelele Excel împrăștiate și munca repetitivă din primărie.
+          Gestionezi într-un singur loc <strong>Patrimoniul, Contractele, Hotărârile CL, Registratura, Pontajele</strong> și
+          <strong>Procesele-Verbale</strong> — cu alerte automate de scadențe, documente PDF/Word gata de semnat și
+          <strong>mentenanță + sprijin tehnic inclus lunar</strong>.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#simulator" class="btn btn-primary btn-lg">🖥️ Testează Simulatorul Live</a>
+          <a href="#preturi" class="btn btn-secondary btn-lg">Vezi Pachetele (500 – 700 lei/lună)</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-pill">
+            <div class="stat-pill-icon">🧩</div>
+            <div>
+              <strong>9 Module Integrate</strong>
+              <span>Secretariat, Achiziții, Patrimoniu &amp; RU</span>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-pill-icon">🔒</div>
+            <div>
+              <strong>100% Date Locale</strong>
+              <span>Baze de date în primărie, fără cloud extern</span>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-pill-icon">💾</div>
+            <div>
+              <strong>Backup .zip Zilnic</strong>
+              <span>Arhivare automată și restaurare cu 1 click</span>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-pill-icon">🤝</div>
+            <div>
+              <strong>Mentenanță &amp; Suport</strong>
+              <span>Asistență tehnică directă inclusă lunar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SIMULATOR INTERACTIV CDS SUITE
+       ===================================================== -->
+  <section class="section section-alt" id="simulator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">🖥️ Previzualizare Interactivă</span>
+        <h2>Testează CDS Suite Direct în Browser</h2>
+        <p>
+          Explorează chiar acum interfața reală a launcherului CDS Suite: schimbă culoarea de accent,
+          comută între tema <strong>Dark / Light</strong>, caută simultan în bazele de date și apasă
+          <strong>„Deschide”</strong> pe oricare dintre cele 9 module.
+        </p>
+      </div>
+
+      <!-- Bară personalizare simulator -->
+      <div class="simulator-controls-bar">
+        <div class="sim-ctrl-group">
+          <span class="sim-ctrl-label">🎨 Culoare accent (din Setări):</span>
+          <div class="accent-dots" id="simAccentDots"></div>
+          <span class="sim-ctrl-label" id="simAccentName" style="color: var(--accent);">Albastru</span>
+        </div>
+
+        <div class="sim-ctrl-group">
+          <button class="btn btn-ghost btn-sm" id="simThemeToggle" type="button">☀️ Mod Light în Simulator</button>
+          <button class="btn btn-ghost btn-sm" id="simViewToggle" type="button">☰ Listă</button>
+          <button class="btn btn-secondary btn-sm" id="simBackHomeBtn" type="button" style="display:none;">⬅ Înapoi la Launcher</button>
+        </div>
+      </div>
+
+      <!-- Fereastra simulator CDS Suite -->
+      <div class="sim-window" id="simWindow">
+        <div class="sim-os-bar">
+          <div class="sim-os-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span>CDS Suite — Windows Desktop App (Demo Interactiv)</span>
+          <span>100% Offline Ready</span>
+        </div>
+
+        <!-- Vedere Launcher Principal -->
+        <div class="sim-launcher-view" id="simLauncherView">
+          <div class="sim-topbar">
+            <div class="sim-top-left">
+              <img src="logo.png" alt="CDS" />
+              <span class="sim-app-title">CDS Suite</span>
+              <span class="sim-ver" id="simVersionLabel">v1.0.4</span>
+              <span class="sim-sep"></span>
+              <span class="sim-lic">● Licență activă 365z</span>
+              <span class="sim-uat">🏛️ Primăria Comunei Model (Județul Caraș-Severin)</span>
+            </div>
+            <div class="sim-top-right">
+              <button class="sim-btn-pill" id="simQuickLightBtn" type="button">☀️ Comută Light</button>
+              <button class="sim-btn-pill" id="simQuickCompactBtn" type="button">☰ Listă</button>
+            </div>
+          </div>
+
+          <div class="sim-body">
+            <div class="sim-page-head">
+              <h3>Aplicații disponibile</h3>
+              <span>9 module</span>
+            </div>
+
+            <!-- Panou Alerte & Termene Active -->
+            <div class="sim-alerts" id="simAlertsBox">
+              <div class="sim-alerts-strip"></div>
+              <div class="sim-alerts-inner">
+                <div class="sim-alerts-title">🔔 Alerte &amp; Termene Active (3)</div>
+                <div class="sim-alert-row">
+                  <span>• <strong>Centralizator Contracte:</strong> 1 contract expiră în ≤30 zile &nbsp;•&nbsp; 2 fără PDF</span>
+                  <button class="sim-alert-open" type="button" data-open-mod="contracte">Deschide →</button>
+                </div>
+                <div class="sim-alert-row">
+                  <span>• <strong>Registru Intrări/Ieșiri:</strong> 1 termen urgent de răspuns (≤7 zile)</span>
+                  <button class="sim-alert-open" type="button" data-open-mod="registratura">Deschide →</button>
+                </div>
+                <div class="sim-alert-row">
+                  <span>• <strong>Patrimoniu &amp; Inventar:</strong> 1 scadență ITP/RCA în ≤30 zile (Autoutilitară UAT)</span>
+                  <button class="sim-alert-open" type="button" data-open-mod="patrimoniu">Deschide →</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Search bar global -->
+            <div class="sim-search-wrap">
+              <input
+                type="text"
+                class="sim-search-input"
+                id="simSearchInput"
+                placeholder="🔍 Caută aplicație, nr. contract, furnizor, HCL, nr. înregistrare sau inventar (ex: laptop, salubrizare, 2026)..."
+              />
+              <button class="sim-search-clear" id="simSearchClear" type="button">✕</button>
+            </div>
+
+            <!-- Rezultate dinamice sau categorii -->
+            <div id="simCardsContainer"></div>
+          </div>
+
+          <div class="sim-footer">
+            <div class="sim-footer-btns">
+              <button class="sim-footer-btn" type="button" data-toast="✓ Sistemul rulează ultima versiune (v1.0.4).">Verifică actualizări</button>
+              <button class="sim-footer-btn" type="button" data-toast="ℹ️ CDS Suite v1.0.4 — Dezvoltat de Ciucă Denis Software.">Despre</button>
+              <button class="sim-footer-btn" type="button" data-toast="🩺 Diagnostic OK: 9/9 module și 4/4 baze SQLite verificate.">Diagnostic</button>
+              <button class="sim-footer-btn" type="button" data-toast="💾 Backup automat zilnic activ (CDS_Suite_Backup.zip salvat local).">💾 Backup</button>
+              <button class="sim-footer-btn" type="button" data-toast="⚙️ Setările UAT (antet, prag alerte, semnături PV) sunt salvate.">⚙ Setări</button>
+            </div>
+            <span>© Ciucă Denis Software</span>
+          </div>
+        </div>
+
+        <!-- Vedere Modul Deschis -->
+        <div class="sim-module-view" id="simModuleView">
+          <div class="sim-mod-topbar">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <button class="sim-open-btn" id="simModuleBackBtn" type="button">⬅ Înapoi la Launcher</button>
+              <strong id="simModuleViewTitle" style="font-size:1rem;">Patrimoniu &amp; Inventar</strong>
+            </div>
+            <span class="sim-ver" id="simModuleViewSub">Previzualizare interactivă modul desktop</span>
+          </div>
+          <div class="sim-mod-content" id="simModuleViewContent"></div>
+        </div>
+
+        <div class="sim-toast" id="simToast"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PROBLEMA VS SOLUTIA
+       ===================================================== -->
+  <section class="section" id="avantaje">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">⚖️ Înainte vs. După CDS Suite</span>
+        <h2>De Ce Renunță Primăriile la Tabelele Excel Împrăștiate</h2>
+        <p>
+          Programul a fost construit pornind de la nevoile reale din secretariat, contabilitate,
+          patrimoniu, achiziții publice și resurse umane ale unei primării.
+        </p>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card bad">
+          <h3>⛔ Modul clasic de lucru în primărie</h3>
+          <ul class="compare-list">
+            <li><span class="ico">📂</span><span>Zeci de fișiere Excel și Word salvate pe mai multe calculatoare, greu de găsit la un control.</span></li>
+            <li><span class="ico">⏰</span><span>Contracte expirate, termene de răspuns la petiții depășite sau ITP/RCA uitate fără nicio avertizare.</span></li>
+            <li><span class="ico">✍️</span><span>Aceleași date ale primăriei, furnizorilor și comisiilor scrise manual din nou la fiecare proces-verbal, aviz sau cartuș HCL.</span></li>
+            <li><span class="ico">🏷️</span><span>Inventarierea anuală și etichetarea bunurilor durează zile întregi; procesele-verbale de transfer sau casare se fac greu în Word.</span></li>
+            <li><span class="ico">💥</span><span>Risc major de pierdere a registrelor dacă se strică calculatorul sau lipsește backup-ul zilnic.</span></li>
+          </ul>
+        </div>
+
+        <div class="compare-card good">
+          <h3>✅ Cum lucrezi cu CDS Suite</h3>
+          <ul class="compare-list">
+            <li><span class="ico">🚀</span><span>Toate cele 9 aplicații într-un singur Launcher unitar, cu căutare globală instantanee în toate bazele de date.</span></li>
+            <li><span class="ico">🔔</span><span>Panou central de Alerte &amp; Termene chiar la deschidere: vezi imediat contractele scadente, corespondența urgentă și ITP/RCA.</span></li>
+            <li><span class="ico">📄</span><span>Generezi în câteva secunde documente oficiale (PDF, Word, Excel) cu antetul primăriei, semnăturile și comisia configurate o singură dată.</span></li>
+            <li><span class="ico">📦</span><span>Patrimoniu complet cu Domeniu Public/Privat/Obiecte de inventar, etichete QR pe coală A4 (14/pagină), PV Transfer și PV Casare în PDF.</span></li>
+            <li><span class="ico">🛡️</span><span>Backup automat zilnic în format <code>.zip</code> + mentenanță și sprijin tehnic direct inclus în abonament.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Activitate în Primărie</th>
+              <th>Mod Clasic (Excel / Word / Dosare)</th>
+              <th>Cu CDS Suite (Centralizat &amp; Automat)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Inventariere &amp; Casare</strong></td>
+              <td>Tabele separate pe compartimente; procese-verbale scrise manual în Word la fiecare transfer sau casare.</td>
+              <td>Domeniu Public/Privat &amp; Obiecte într-o singură bază, 14 etichete QR/coală A4, PV Transfer &amp; Casare PDF cu semnături gata completate.</td>
+            </tr>
+            <tr>
+              <td><strong>Contracte &amp; Alerte ITP/RCA</strong></td>
+              <td>Scadențele se verifică manual din agende sau Excel; risc de expirare neobservată.</td>
+              <td>Panou central de alerte chiar la deschiderea Launcherului pentru contracte ≤30 zile, documente fără PDF și ITP/RCA.</td>
+            </tr>
+            <tr>
+              <td><strong>Registratură &amp; Termene</strong></td>
+              <td>Căutare greoaie în registre pe hârtie sau fișiere diferite; termenele de 30 zile se urmăresc manual.</td>
+              <td>Registru unic Intrare/Ieșire cu căutare instantanee, borderouri PDF/Word și avertizare automată pentru petiții urgente.</td>
+            </tr>
+            <tr>
+              <td><strong>HCL &amp; Avize</strong></td>
+              <td>Cartușe HCL și formulare de avizare editate de la zero pentru fiecare ședință de Consiliu.</td>
+              <td>Evidență completă a hotărârilor, legături directe cu documentele și generare instantanee a cartușului HCL în format Word.</td>
+            </tr>
+            <tr>
+              <td><strong>Pontaje Lunare</strong></td>
+              <td>Calcule manuale în foi Excel în fiecare lună pentru angajați, concedii și demnitari.</td>
+              <td>Pontaj automat pe lună cu zile libere legale, concedii evidențiate și export direct al foii colective pentru contabilitate.</td>
+            </tr>
+            <tr>
+              <td><strong>Siguranță la Control &amp; Backup</strong></td>
+              <td>Date vulnerabile pe un singur PC, greu de adunat rapid la un control al Curții de Conturi.</td>
+              <td>Date 100% locale în primărie, trasabilitate completă pe module și backup automat zilnic în arhivă unificată <code>.zip</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CELE 9 MODULE ALE SUITEI
+       ===================================================== -->
+  <section class="section section-alt" id="module">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">🧩 Suita Completă</span>
+        <h2>Cele 9 Module Integrate în CDS Suite</h2>
+        <p>
+          Fiecare pachet (inclusiv cel de 500 lei) îți oferă acces complet la toate cele 9 module ale programului.
+          Filtrează după compartiment ca să vezi exact ce primești.
+        </p>
+      </div>
+
+      <div class="module-filters" id="moduleFilters">
+        <button class="filter-pill active" type="button" data-filter="all">Toate modulele (9)</button>
+        <button class="filter-pill" type="button" data-filter="secretariat">Secretariat &amp; Patrimoniu (5)</button>
+        <button class="filter-pill" type="button" data-filter="achizitii">Achiziții Publice (3)</button>
+        <button class="filter-pill" type="button" data-filter="ru">Resurse Umane (1)</button>
+      </div>
+
+      <div class="modules-grid" id="modulesDetailGrid"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PREZENTARE DOCUMENTE OFICIALE SCOASE LA IMPRIMANTA (#mostre)
+       ===================================================== -->
+  <section class="section" id="mostre">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">🖨️ Documente Gata de Semnat</span>
+        <h2>Cum Arată Documentele Scoase la Imprimantă din CDS Suite</h2>
+        <p>
+          Răsfoiește modelele reale de documente generate cu 1 click în format PDF sau Word, cu antetul primăriei, tabelele și semnăturile deja așezate corect pe coală A4.
+        </p>
+      </div>
+
+      <div class="doc-tabs" id="docSampleTabs">
+        <button class="doc-tab-btn active" type="button" data-sample="pv-casare">📋 PV Casare / Transfer</button>
+        <button class="doc-tab-btn" type="button" data-sample="etichete-qr">🏷️ Etichete QR Patrimoniu</button>
+        <button class="doc-tab-btn" type="button" data-sample="borderou-registratura">🗂️ Borderou Registratură</button>
+        <button class="doc-tab-btn" type="button" data-sample="hcl-contracte">📜 Cartuș HCL &amp; Contracte</button>
+      </div>
+
+      <div class="doc-sample-stage" id="docSampleViewport"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       MENTENANTA & SPRIJIN TEHNIC INCLUS
+       ===================================================== -->
+  <section class="section" id="mentenanta">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">🤝 Siguranță &amp; Suport Permanent</span>
+        <h2>Nu Cumpăra Doar un Program — Primești Mentenanță și Sprijin Tehnic Inclus</h2>
+        <p>
+          Știm că într-o primărie cel mai important lucru este ca angajații să nu rămână blocați.
+          De aceea, abonamentul lunar include asistență tehnică, actualizări și siguranța completă a datelor.
+        </p>
+      </div>
+
+      <div class="support-grid">
+        <div class="support-card">
+          <div class="support-icon">📞</div>
+          <h3>Sprijin Tehnic Direct</h3>
+          <p>
+            Când un funcționar are o nelămurire sau are nevoie de ajutor, intervenim rapid prin telefon sau asistență la distanță (remote).
+          </p>
+        </div>
+
+        <div class="support-card">
+          <div class="support-icon">⬆️</div>
+          <h3>Actualizări cu 1 Click</h3>
+          <p>
+            Launcherul verifică automat versiunile noi. Primăria beneficiază permanent de îmbunătățiri și ajustări legislative fără costuri surpriză.
+          </p>
+        </div>
+
+        <div class="support-card">
+          <div class="support-icon">💾</div>
+          <h3>Backup Automat Zilnic</h3>
+          <p>
+            O dată pe zi programul creează automat o arhivă unificată <code>.zip</code> cu toate bazele SQLite, PDF-urile atașate și documentele generate.
+          </p>
+        </div>
+
+        <div class="support-card">
+          <div class="support-icon">🖥️</div>
+          <h3>Date 100% Locale &amp; Offline</h3>
+          <p>
+            Nu depinzi de internet slab sau servere externe. Totul funcționează instant pe calculatoarele din primărie, pe Windows 10 și Windows 11.
+          </p>
+        </div>
+      </div>
+
+      <div class="audit-security-banner">
+        <div class="audit-banner-head">
+          <span class="section-kicker" style="margin-bottom: 10px;">🛡️ Siguranță &amp; Control Oficial</span>
+          <h3>Proiectat pentru Liniștea Primăriei la Controale și Audit</h3>
+          <p>
+            Indiferent de situația rețelei sau de verificările interne și ale Curții de Conturi, instituția păstrează controlul total asupra bazelor de date și documentelor.
+          </p>
+        </div>
+        <div class="audit-grid">
+          <div class="audit-item">
+            <div class="audit-item-ico">🏛️</div>
+            <h4>Date 100% Locale în Primărie (GDPR)</h4>
+            <p>
+              Nicio informație a instituției, a cetățenilor sau a angajaților nu pleacă pe servere externe ori în cloud necunoscut. Bazele SQLite și PDF-urile rămân strict pe calculatoarele primăriei.
+            </p>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-ico">📑</div>
+            <h4>Trasabilitate pentru Curtea de Conturi</h4>
+            <p>
+              La orice verificare poți scoate imediat listele de inventariere, procesele-verbale de transfer sau casare, registrul de contracte cu PDF-uri atașate, hotărârile HCL și registrele de intrare-ieșire.
+            </p>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-ico">⚡</div>
+            <h4>Restaurare Completă în 10 Secunde (.zip)</h4>
+            <p>
+              Arhiva zilnică unificată <code>.zip</code> poate fi salvată pe un stick USB sau pe alt calculator din birou. În caz de defecțiune hardware, toată gestiunea primăriei revine exact la zi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PRETURI & PACHETE (500 / 600 / 700 LEI)
+       ===================================================== -->
+  <section class="section section-alt" id="preturi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">💳 Planuri Clare pentru Bugetul Primăriei</span>
+        <h2>Pachete Transparente: 500 – 700 lei / lună</h2>
+        <p>
+          Toate pachetele includ <strong>toate cele 9 module ale suitei</strong>, actualizările și mentenanța tehnică.
+          Alegi pachetul în funcție de numărul de calculatoare pe care dorești să ruleze programul în primărie.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Pachet 1: 500 lei / 1 PC -->
+        <div class="price-card">
+          <div class="price-tier">Pachetul Esențial</div>
+          <div class="price-pc-badge">💻 1 Calculator (1 PC)</div>
+          <div class="price-amount">
+            <strong>500 lei</strong>
+            <span>/ lună</span>
+          </div>
+          <p class="price-desc">
+            Ideal pentru primării mici sau un compartiment dedicat care centralizează gestiunea pe o singură stație.
+          </p>
+          <ul class="price-list">
+            <li>Licență completă pe <strong>1 calculator</strong> din primărie</li>
+            <li>Acces la <strong>toate cele 9 module</strong> CDS Suite</li>
+            <li>Actualizări automate cu 1 click din Launcher</li>
+            <li>Backup zilnic automat (<code>.zip</code>) și restaurare rapidă</li>
+            <li><strong>Mentenanță și sprijin tehnic inclus</strong> (telefon, email, remote)</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary select-plan-btn" data-plan="Pachetul Esențial — 500 lei/lună (1 calculator)">
+            Alege Pachetul Esențial
+          </a>
+        </div>
+
+        <!-- Pachet 2: 600 lei / 2 PC-uri (Recomandat) -->
+        <div class="price-card featured">
+          <div class="price-ribbon">⭐ RECOMANDAT PENTRU PRIMĂRII</div>
+          <div class="price-tier">Pachetul Complet UAT</div>
+          <div class="price-pc-badge">💻💻 2 Calculatoare (2 PC-uri)</div>
+          <div class="price-amount">
+            <strong>600 lei</strong>
+            <span>/ lună</span>
+          </div>
+          <p class="price-desc">
+            Cea mai echilibrată alegere pentru o primărie: acoperă simultan 2 birouri (ex. Secretariat/Registratură + Contabilitate/Achiziții).
+          </p>
+          <ul class="price-list">
+            <li>Licență completă pe <strong>2 calculatoare</strong> din primărie</li>
+            <li>Acces la <strong>toate cele 9 module</strong> CDS Suite</li>
+            <li><strong>Mentenanță completă &amp; Sprijin tehnic prioritar</strong></li>
+            <li>Configurare inițială UAT (antet primărie, comisii și semnături oficiale)</li>
+            <li>Instruire practică a personalului la instalare + asistență remote rapidă</li>
+            <li>Backup zilnic automat (<code>.zip</code>) &amp; actualizări incluse</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary select-plan-btn" data-plan="Pachetul Complet UAT (Recomandat) — 600 lei/lună (2 calculatoare)">
+            Solicită Pachetul Complet
+          </a>
+        </div>
+
+        <!-- Pachet 3: 700 lei / 3 PC-uri -->
+        <div class="price-card">
+          <div class="price-tier">Pachetul Premium</div>
+          <div class="price-pc-badge">💻💻💻 3 Calculatoare (3 PC-uri)</div>
+          <div class="price-amount">
+            <strong>700 lei</strong>
+            <span>/ lună</span>
+          </div>
+          <p class="price-desc">
+            Pentru primării care doresc 3 stații conectate, șabloane adaptate după modelul instituției și suport tehnic cu prioritate maximă.
+          </p>
+          <ul class="price-list">
+            <li>Licență completă pe <strong>3 calculatoare</strong> din primărie</li>
+            <li>Acces la <strong>toate cele 9 module</strong> CDS Suite</li>
+            <li><strong>Adaptarea și personalizarea șabloanelor</strong> Word/PDF după modelul primăriei</li>
+            <li><strong>Configurare completă pe cele 3 calculatoare</strong> pentru compartimentele primăriei</li>
+            <li><strong>Suport tehnic dedicat</strong> cu prioritate maximă + instruire extinsă</li>
+            <li>Backup zilnic automat (<code>.zip</code>) &amp; actualizări incluse</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary select-plan-btn" data-plan="Pachetul Premium — 700 lei/lună (3 calculatoare)">
+            Alege Pachetul Premium
+          </a>
+        </div>
+      </div>
+
+      <div class="pricing-note">
+        💡 <strong>Facturare flexibilă adaptată contabilității UAT:</strong> plata se poate face lunar, trimestrial sau anual,
+        în funcție de organizarea bugetului instituției. Configurarea și instalarea sunt incluse fără taxe ascunse.
+      </div>
+
+      <div class="offer-gen-box">
+        <div class="offer-gen-head">
+          <div>
+            <h3>📄 Generează Oferta Oficială A4 / PDF pentru Primar</h3>
+            <p>
+              Vrei să prezinți programul domnului Primar sau la Contabilitate pentru aprobarea bugetului? Completează numele primăriei și scoate imediat oferta pe format A4.
+            </p>
+          </div>
+        </div>
+        <div class="offer-gen-form">
+          <div class="form-field">
+            <label for="offerUatName">Denumire Primărie / UAT</label>
+            <input type="text" id="offerUatName" placeholder="ex: Primăria Comunei Bozovici" />
+          </div>
+          <div class="form-field">
+            <label for="offerJudetName">Județul</label>
+            <input type="text" id="offerJudetName" value="Caraș-Severin" />
+          </div>
+          <div class="form-field">
+            <label for="offerPlanSelect">Pachet dorit</label>
+            <select id="offerPlanSelect">
+              <option value="500">Pachetul Esențial — 500 lei/lună (1 calculator)</option>
+              <option value="600" selected>Pachetul Complet UAT — 600 lei/lună (2 calculatoare)</option>
+              <option value="700">Pachetul Premium — 700 lei/lună (3 calculatoare)</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnOpenOfferModal">
+            📄 Generează Oferta Oficială A4 (Print / PDF)
+          </button>
+        </div>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h4>Demonstrație Live Gratuită</h4>
+          <p>Prezentăm programul online sau telefonic primarului, secretarului general și contabilului, pe exemple concrete din primărie.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h4>Instalare &amp; Configurare Rapidă</h4>
+          <p>Instalăm suita pe 1, 2 sau 3 calculatoare, setăm datele primăriei (antet, județ, comisii, semnături) și activăm licența.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h4>Instruire &amp; Suport Continuu</h4>
+          <p>Explicăm funcționarilor modul de lucru și rămânem alături de primărie lună de lună cu actualizări și sprijin tehnic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CALCULATOR ECONOMIE DE TIMP IN PRIMARIE
+       ===================================================== -->
+  <section class="section" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">⏱️ Impact Măsurabil</span>
+        <h2>Câte Ore Economisește Primăria Lunar cu CDS Suite?</h2>
+        <p>
+          Ajustează valorile de mai jos în funcție de activitatea lunară a primăriei tale ca să vezi timpul câștigat.
+        </p>
+      </div>
+
+      <div class="calc-box">
+        <div>
+          <div class="calc-slider-group">
+            <div class="calc-slider-top">
+              <label for="calcAchizitii">Dosare / PV-uri achiziții (produse, servicii, lucrări) pe lună</label>
+              <span id="valAchizitii">10 dosare</span>
+            </div>
+            <input type="range" id="calcAchizitii" min="2" max="40" value="10" />
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-top">
+              <label for="calcReg">Acte înregistrate în Registratură &amp; HCL / Avize pe lună</label>
+              <span id="valReg">80 documente</span>
+            </div>
+            <input type="range" id="calcReg" min="15" max="300" step="5" value="80" />
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-top">
+              <label for="calcBunuri">Bunuri inventariate / etichetate / transferate lunar (medie)</label>
+              <span id="valBunuri">30 bunuri</span>
+            </div>
+            <input type="range" id="calcBunuri" min="5" max="200" step="5" value="30" />
+          </div>
+
+          <div class="calc-slider-group">
+            <div class="calc-slider-top">
+              <label for="calcAngajati">Angajați și demnitari pontați lunar în primărie</label>
+              <span id="valAngajati">28 persoane</span>
+            </div>
+            <input type="range" id="calcAngajati" min="8" max="100" value="28" />
+          </div>
+        </div>
+
+        <div class="calc-results">
+          <div class="calc-res-item">
+            <label>Timp economisit lunar în primărie</label>
+            <strong id="resOreLuna">22.5 ore / lună</strong>
+          </div>
+          <div class="calc-res-item">
+            <label>Zile întregi de muncă câștigate într-un an</label>
+            <strong id="resZileAn">34 zile / an</strong>
+          </div>
+          <div class="calc-res-item">
+            <label>Cost raportat la pachetul recomandat (600 lei / 2 PC-uri)</label>
+            <strong id="resCostOra">~27 lei / oră câștigată</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       INTREBARI FRECVENTE (FAQ)
+       ===================================================== -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">❓ Răspunsuri Rapide</span>
+        <h2>Întrebări Frecvente ale Primăriilor</h2>
+        <p>Tot ce trebuie să știi înainte să solicite primăria instalarea sau o prezentare demonstrativă.</p>
+      </div>
+
+      <div class="faq-list" id="faqList">
+        <div class="faq-item open">
+          <button class="faq-q" type="button">
+            <span>Funcționează programul dacă primăria are internet slab sau întreruperi?</span>
+            <span class="chev">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              Da! CDS Suite este o aplicație desktop pentru Windows, cu bazele de date și documentele PDF stocate local în instituție.
+              Nu depinde de conexiunea la internet pentru lucrul de zi cu zi; internetul este necesar doar când verificați sau descărcați actualizări ori pentru asistența remote.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>Ce include exact suma lunară de 500 – 700 lei?</span>
+            <span class="chev">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              Toate cele 3 pachete includ toate cele 9 module ale suitei, actualizările programului și <strong>mentenanța + sprijinul tehnic direct</strong>
+              (ajutor telefonic și intervenție la distanță atunci când funcționarii au nevoie de asistență). Singura diferență principală este numărul de calculatoare (1, 2 sau 3 PC-uri) și serviciile suplimentare de configurare și personalizare a șabloanelor din pachetele superioare.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>Cum sunt protejate datele primăriei în cazul defectării unui calculator?</span>
+            <span class="chev">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              Suita include un Manager de Backup &amp; Restaurare integrat care creează automat zilnic o arhivă completă <code>.zip</code>
+              cu toate bazele de date (Patrimoniu, Contracte, HCL, Registratură, Pontaje), PDF-urile atașate și șabloanele. Arhiva se poate copia și pe stick USB sau în rețeaua internă și restaura în câteva secunde.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>Cât durează instalarea și instruirea personalului din primărie?</span>
+            <span class="chev">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              Instalarea și configurarea datelor instituției (antet, județ, semnături, comisii) durează aproximativ 15–30 de minute pe fiecare calculator. Interfața este intuitivă, iar funcționarii învață să lucreze în program încă din prima zi, având oricând la dispoziție sprijinul nostru tehnic.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>Putem începe cu 1 calculator (500 lei) și să trecem mai târziu la 2 sau 3 calculatoare?</span>
+            <span class="chev">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              Desigur. Puteți începe cu pachetul de 1 calculator și să treceți oricând la 2 calculatoare (600 lei) sau 3 calculatoare (700 lei), fără să pierdeți niciun document sau înregistrare introdusă până atunci.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>De ce există și șabloane personalizabile pentru antet, semnături și comisii?</span>
+            <span class="chev">+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              Fiecare primărie are propriul antet, propriul județ, primar, secretar general și membri în comisiile de inventariere sau casare.
+              În CDS Suite le configurezi o singură dată în Setări sau în fereastra de Semnături PV, iar programul le aplică automat pe procesele-verbale, listele de inventariere, foile de pontaj și avizele generate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CONTACT & SOLICITARE DEMO
+       ===================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">📩 Solicită o Prezentare</span>
+        <h2>Programează un Demo Gratuit pentru Primăria Ta</h2>
+        <p>
+          Completează datele primăriei mai jos. Îți pregătim imediat mesajul de contact pe care îl poți trimite pe WhatsApp, Email sau copia direct.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h3 style="margin-bottom: 10px;">Contact Direct Dezvoltator</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 16px;">
+            Primești răspuns direct, fără intermediari și fără call-centere, atât pentru prezentarea programului cât și pentru asistența tehnică lunară.
+          </p>
+
+          <div class="contact-item">
+            <div class="contact-ico">👨‍💻</div>
+            <div>
+              <strong>Dezvoltator &amp; Suport Tehnic</strong>
+              <span id="cfgDevName">Ciucă Denis Software — CDS Suite</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-ico">📞</div>
+            <div>
+              <strong>Telefon / WhatsApp</strong>
+              <span id="cfgPhoneDisplay">Prezentare &amp; Suport Direct (Solicită apel în formular)</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-ico">✉️</div>
+            <div>
+              <strong>Email Prezentări &amp; Suport</strong>
+              <span id="cfgEmailDisplay">Răspuns rapid în aceeași zi lucrătoare</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-ico">🏛️</div>
+            <div>
+              <strong>Acoperire</strong>
+              <span>Primării de comune, orașe și instituții publice din toată România (instalare &amp; suport remote).</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3 style="margin-bottom: 16px;">Formular Cerere Demo / Ofertă UAT</h3>
+          <form id="demoRequestForm">
+            <div class="form-grid">
+              <div class="form-field full">
+                <label for="fPlan">Pachetul dorit *</label>
+                <select id="fPlan" required>
+                  <option value="Pachetul Complet UAT (Recomandat) — 600 lei/lună (2 calculatoare)">Pachetul Complet UAT (Recomandat) — 600 lei/lună (2 calculatoare)</option>
+                  <option value="Pachetul Esențial — 500 lei/lună (1 calculator)">Pachetul Esențial — 500 lei/lună (1 calculator)</option>
+                  <option value="Pachetul Premium — 700 lei/lună (3 calculatoare)">Pachetul Premium — 700 lei/lună (3 calculatoare)</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="fPrimarie">Denumire Primărie / UAT *</label>
+                <input type="text" id="fPrimarie" placeholder="ex: Primăria Comunei..." required />
+              </div>
+
+              <div class="form-field">
+                <label for="fJudet">Județul *</label>
+                <input type="text" id="fJudet" placeholder="ex: Caraș-Severin / Timiș..." required />
+              </div>
+
+              <div class="form-field">
+                <label for="fPersoana">Nume &amp; Funcție persoană contact *</label>
+                <input type="text" id="fPersoana" placeholder="ex: Popescu Ion — Secretar General" required />
+              </div>
+
+              <div class="form-field">
+                <label for="fTelefon">Telefon de contact *</label>
+                <input type="tel" id="fTelefon" placeholder="ex: 07XX XXX XXX" required />
+              </div>
+
+              <div class="form-field full">
+                <label for="fMesaj">Observații / Module prioritare (opțional)</label>
+                <textarea id="fMesaj" rows="3" placeholder="ex: Ne interesează în mod special Patrimoniul cu etichete QR și Centralizatorul de Contracte..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="btnSendWhatsapp">💬 Generează &amp; Trimite pe WhatsApp</button>
+              <button type="button" class="btn btn-secondary" id="btnSendEmail">✉️ Trimite pe Email</button>
+              <button type="button" class="btn btn-ghost" id="btnCopyReq">📋 Copiază mesajul</button>
+            </div>
+
+            <div class="form-feedback" id="formFeedback"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#top" class="brand">
+        <img src="logo.png" alt="Logo CDS Suite" />
+        <div class="brand-text">
+          <span class="brand-name">CDS Suite</span>
+          <span class="brand-sub">Digitalizare practică pentru Primării</span>
+        </div>
+      </a>
+
+      <div class="footer-links">
+        <a href="#simulator">Simulator</a>
+        <a href="#module">Module</a>
+        <a href="#mostre">Mostre</a>
+        <a href="#mentenanta">Suport</a>
+        <a href="#preturi">Prețuri</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-copy">
+        © <span id="footerYear">2026</span> CDS Suite — Ciucă Denis Software. Toate drepturile rezervate.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Ofertă Oficială A4 / PDF -->
+  <div class="offer-modal-backdrop" id="offerModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="offerModalTitle">
+    <div class="offer-modal-dialog">
+      <div class="offer-modal-toolbar">
+        <strong id="offerModalTitle">📄 Ofertă Oficială A4 — CDS Suite (Pregătită pentru Print / PDF)</strong>
+        <div class="offer-modal-actions">
+          <button type="button" class="btn btn-primary btn-sm" id="btnPrintOfferSheet">🖨️ Printează / Salvează PDF</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="btnCloseOfferModal">✕ Închide</button>
+        </div>
+      </div>
+      <div class="offer-modal-body">
+        <div class="offer-a4-sheet" id="offerSheetPrintable"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buton Plutitor WhatsApp / Ofertă -->
+  <button type="button" class="floating-wa-btn" id="floatingWhatsappBtn" title="Discută direct pe WhatsApp sau solicită ofertă">
+    💬 Discută pe WhatsApp / Ofertă
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
